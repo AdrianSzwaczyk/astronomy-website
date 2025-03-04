@@ -1,5 +1,7 @@
 # Website Project
 
+![Main Page](.\Website\preview\main-page.png)
+
 ## Overview
 
 This project is one of my earliest websites, focusing on visual effects and interactivity using mainly HTML and CSS, with minimal JavaScript. It incorporates features such as parallax scrolling, smooth transitions, and interactive galleries achieved with tricks and smart techniques instead of JavaScript.

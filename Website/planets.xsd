@@ -1,0 +1,306 @@
+﻿<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	
+	<xs:element name="space-objects">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="stars" type="space-locationType"/>
+				<xs:element name="planets" type="space-locationType"/>
+				<xs:element name="artificial-objects" type="space-locationType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="space-locationType">
+		<xs:sequence>
+			<xs:element ref="solar-system" minOccurs="0"/>
+			<xs:element ref="universe" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="solar-system">
+		<xs:complexType>
+			<xs:choice>
+				<xs:element ref="star" maxOccurs="unbounded"/>
+				<xs:element ref="spacecraft" maxOccurs="unbounded"/>
+				<xs:sequence>
+					<xs:element name="inner-planets">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element ref="planet" maxOccurs="4"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="outer-planets">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element ref="planet" maxOccurs="4"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="universe">
+		<xs:complexType>
+			<xs:choice>
+				<xs:element ref="star" maxOccurs="unbounded"/>
+				<xs:element ref="spacecraft" maxOccurs="unbounded"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="star" type="starType"/>
+	<xs:element name="planet" type="planetType"/>
+	<xs:element name="spacecraft" type="spacecraftType"/>
+
+	<xs:complexType name="planetType">
+		<xs:complexContent>
+			<xs:extension base="mediaType">
+				<xs:attribute name="visited-by-man-made-object" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="yes"/>
+							<xs:enumeration value="no"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="type" use="required">
+					<xs:simpleType>
+						<xs:restriction base="shortString">
+							<xs:enumeration value="terrestial"/>
+							<xs:enumeration value="gas-giant"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="spacecraftType">
+		<xs:complexContent>
+			<xs:extension base="spcDataType">
+				<xs:sequence>
+					<xs:element ref="image" maxOccurs="1"/>
+					<xs:element ref="wikipedia-link" maxOccurs="1"/>
+				</xs:sequence>
+				<xs:attribute name="working">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="yes"/>
+							<xs:enumeration value="no"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute ref="nr"/>
+				<xs:attribute name="type" use="required">
+					<xs:simpleType>
+						<xs:restriction base="shortString">
+							<xs:enumeration value="space-station"/>
+							<xs:enumeration value="space-probe"/>
+							<xs:enumeration value="geostationary-spacecraft"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="starType">
+		<xs:complexContent>
+			<xs:extension base="mediaType">
+				<xs:attribute name="type" use="required">
+					<xs:simpleType>
+						<xs:restriction base="shortString">
+							<xs:enumeration value="red-dwarf"/>
+							<xs:enumeration value="white-dwarf"/>
+							<xs:enumeration value="red-giant"/>
+							<xs:enumeration value="black-hole"/>
+							<xs:enumeration value="neutron"/>
+							<xs:enumeration value="G-type-main-sequence"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="objType">
+		<xs:sequence>
+			<xs:element name="data" type="dataType"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="mediaType">
+		<xs:complexContent>
+			<xs:extension base="objType">
+				<xs:sequence>
+					<xs:element ref="image" maxOccurs="1"/>
+					<xs:element ref="wikipedia-link" maxOccurs="1"/>
+				</xs:sequence>
+				<xs:attribute ref="nr"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="dataType">
+		<xs:sequence>
+			<xs:element name="name" type="nameType"/>
+			<xs:element name="physical-properties">
+				<xs:complexType>
+					<xs:group ref="physical-propertiesGroup"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="description" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="spcDataType">
+		<xs:sequence>
+			<xs:element name="data" type="spcType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="spcType">
+		<xs:complexContent>
+			<xs:extension base="dataType">
+				<xs:sequence>
+					<xs:element name="year" type="yearType"/>
+					<xs:element name="location" type="noteType"/>
+					<xs:element name="countries">
+						<xs:simpleType>
+							<xs:restriction base="listType">
+								<xs:maxLength value="195"/>
+								<xs:minLength value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:element name="image" type="adressType"/>
+	<xs:element name="wikipedia-link" type="adressType"/>
+
+	<xs:simpleType name="listType">
+		<xs:list itemType="listItemType"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="listItemType">
+		<xs:restriction base="shortString">
+			<xs:pattern value="[A-Z].*"/>
+			<xs:minLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="adressType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="source" type="xs:anyURI" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:group name="physical-propertiesGroup">
+		<xs:all>
+			<xs:element name="radius" type="propertyType" minOccurs="0"/>
+			<xs:element name="length" type="propertyType" minOccurs="0"/>
+			<xs:element name="width" type="propertyType" minOccurs="0"/>
+			<xs:element name="mass">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="massType">
+							<xs:attribute ref="units"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="escape-velocity" type="propertyType" minOccurs="0"/>
+			<xs:element name="density" type="propertyType" minOccurs="0"/>
+			<xs:element name="gravity" type="propertyType" minOccurs="0"/>
+			<xs:element name="rotation-period" type="timeType" minOccurs="0"/>
+			<xs:element name="orbital-period" type="timeType" minOccurs="0"/>
+		</xs:all>
+	</xs:group>
+
+	<xs:complexType name="propertyType">
+		<xs:simpleContent>
+			<xs:extension base="xs:double">
+				<xs:attribute ref="units" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:attribute name="units">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="m"/>
+				<xs:enumeration value="km"/>
+				<xs:enumeration value="kg"/>
+				<xs:enumeration value="km/s"/>
+				<xs:enumeration value="kg/m3"/>
+				<xs:enumeration value="g"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+
+	<xs:attribute name="nr">
+		<xs:simpleType>
+			<xs:restriction base="xs:byte">
+				<xs:minInclusive value="0"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+	
+	<xs:simpleType name="massType">
+		<xs:union>
+			<xs:simpleType>
+				<xs:restriction base="xs:int">
+					<xs:minInclusive value="100"/>
+					<xs:maxExclusive value="100000"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:length value="11"/>
+					<xs:pattern value="[0-9]\..*x.10.*"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
+	</xs:simpleType>
+
+	<xs:simpleType name="nameType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="timeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value=".*d|.*h|.*m|.*s"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="yearType">
+		<xs:restriction base="xs:gYear">
+			<xs:pattern value="(19|2.).."/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="noteType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="50"/>
+			<xs:minLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="shortString">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

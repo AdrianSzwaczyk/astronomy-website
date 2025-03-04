@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Astronomy</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/nav.css">
+        <link rel="stylesheet" type="text/css" href="css/gallery.css">
+    </head>
+    <body>
+        <nav class="nav" id="nav">
+            <div class="hint">
+                <span>&#8249;</span>
+            </div>
+
+            <div class="nav-trigger"><p class="ghost">Gallery</p></div>
+
+            <a class="sitenav" href="index.html">
+                <div class="el home sitenav">
+                    <p class="menu">Home</p>
+                </div>
+            </a>
+
+            <div class="el planets sitenav">
+                <label for="dropmenu" class="pl">
+                    <span class="menu">Planets</span>
+                </label>
+            </div>
+            <input class="cb" type="checkbox" id="dropmenu">
+                <div  class="planetmenu">
+                    <ul>
+                        <li><a href="planets/mercury.html">Mercury</a></li>
+                        <li><a href="planets/venus.html">Venus</a></li>
+                        <li><a href="planets/earth.html">Earth</a></li>
+                        <li><a href="planets/mars.html">Mars</a></li>
+                        <li><a href="planets/jupiter.html">Jupiter</a></li>
+                        <li><a href="planets/saturn.html">Saturn</a></li>
+                        <li><a href="planets/uranus.html">Uranus</a></li>
+                        <li><a href="planets/neptune.html">Neptune</a></li>
+                    </ul>
+                </div>
+
+            
+            <div class="el gallery active">
+                <p class="menu">Gallery</p>
+            </div>
+            
+
+            <a class="sitenav" href="form.html">
+                <div class="el trip">
+                    <p class="menu">Trip to Mars</p>
+                </div>
+            </a>
+        </nav>
+        <header id="gallery-header">Galleries</header>
+        <div id="galleries">
+            <div class="image myimg"><a href="mygallery.html"><img class="myi" src="mygallery/moon1.jpeg" alt="My photos"></a></div>
+            <div class="image otherimg"><a href="othergallery.html"><img class="oti" src="othergallery/carina-nebula.jpg" alt="Other photos"></a></div>
+            <p class="my">My photos</p>
+            <p class="other">Other photos</p>
+        </div>
+    </body>
+</html>

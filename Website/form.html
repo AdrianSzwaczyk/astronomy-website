@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Astronomy</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/nav.css">
+        <link rel="stylesheet" type="text/css" href="css/form.css">
+        <link rel = "stylesheet" href = "jqui/jquery-ui.theme.css">
+        <link rel = "stylesheet" href = "jqui/jquery-ui.css">
+        <link rel = "stylesheet" href = "jqui/jquery-ui.structure.css">
+        <script src = "jqui/external/jquery/jquery.js"> </script>
+        <script src = "jqui/jquery-ui.js"> </script>
+        <script src="scripts/date.js"></script>
+        <script src="scripts/scroll.js"></script>
+    </head>
+    <body>
+        <nav class="nav" id="nav">
+            <div class="hint">
+                <span>&#8249;</span>
+            </div>
+
+            <div class="nav-trigger">
+                <p class="ghost">TRIP</p>
+            </div>
+            <a class="sitenav" href="index.html">
+                <div class="el home">
+                    <p class="menu">Home</p>
+                </div>
+            </a>
+            <div class="el planets sitenav">
+                <label for="dropmenu" class="pl">
+                    <span class="menu">Planets</span>
+                </label>
+            </div>
+
+            <input class="cb" type="checkbox" id="dropmenu">
+
+                <div class="planetmenu">
+                    <ul>
+                        <li><a href="planets/mercury.html">Mercury</a></li>
+                        <li><a href="planets/venus.html">Venus</a></li>
+                        <li><a href="planets/earth.html">Earth</a></li>
+                        <li><a href="planets/mars.html">Mars</a></li>
+                        <li><a href="planets/jupiter.html">Jupiter</a></li>
+                        <li><a href="planets/saturn.html">Saturn</a></li>
+                        <li><a href="planets/uranus.html">Uranus</a></li>
+                        <li><a href="planets/neptune.html">Neptune</a></li>
+                    </ul>
+                </div>
+
+            <a class="sitenav" href="gallery.html">
+                <div class="el gallery">
+                    <p class="menu">Gallery</p>
+                </div>
+            </a>
+
+            <div class="el trip active" id="div">
+                <p class="menu">Trip to Mars</p>
+            </div>
+            
+        </nav>   
+        
+        <div id="fadeout"></div>
+
+        <div id="description">
+            <div id="filler"></div>
+            <h1>Trip to mars</h1>
+            <h2>Fill in the form to apply for the trip!</h2>  
+            <script src="scripts/form.js"></script>
+            <script src="scripts/jquery.validate.js"></script>
+            <form method="post" action="form.php" id="form">
+                <p>
+                    <label for="firstname"><strong>First name</strong></label>
+                    <input type="text" id="firstname" name="firstname" placeholder="Your first Name" required>
+                </p>
+                <p>
+                    <label for="lastname"><strong>Last name</strong></label>
+                    <input type="text" id="lastname" name="lastname" placeholder="Your last Name" required>
+                </p>
+                <p>
+                    <label for="email"><strong>Email</strong></label>
+                    <input type="email" id="email" name="email" placeholder="Your email adress" required>
+                </p>
+                <p>
+                    <label for="tel"><strong>Phone number</strong></label>
+                    <input type="tel" id="tel" name="tel" placeholder="Your phone number" title="Optional">
+                </p>
+                <p>
+                    <span class="rel">
+                        <strong>Your gender</strong><br>
+                        <label for="male"><input type="radio" id="male" name="gender" value="male">Male</label>
+                        <label for="female"><input type="radio" id="female" name="gender" value="female">Female</label>
+                    </span>
+                </p>
+
+                    <p><strong class="notreq">Planets/other objects you have been to</strong></p>
+                        <ul class="visitedlist" id="listplanets">
+                            <li><label class="check" for="mercury" title="Really? Mercury? Boooring"><input type="checkbox" id="mercury" value="mercury" name="planet">Mercury</label></li>
+                            <li><label class="check" for="venus" title="How did you survive?"><input type="checkbox" id="venus" value="venus" name="planet">Venus</label></li>
+                            <li><label class="check" for="earth"><input type="checkbox" id="earth" value="earth" name="planet" checked disabled>Earth</label></li>
+                            <li><label class="check" for="moon" title="One small step..."><input type="checkbox" id="moon" value="moon" name="planet">Earth's moon</label></li>
+                            <li><label class="check" for="mars" title="Are aliens real?"><input type="checkbox" id="mars" value="mars" name="planet">Mars</label></li>
+                            <li><label class="check" for="jupiter"><input type="checkbox" id="jupiter" value="jupiter" name="planet" disabled>Jupiter</label></li>
+                            <li><label class="check" for="saturn"><input type="checkbox" id="saturn" value="saturn" name="planet" disabled>Saturn</label></li>
+                            <li><label class="check" for="uranus"><input type="checkbox" id="uranus" value="uranus" name="planet" disabled>Uranus</label></li>
+                            <li><label class="check" for="neptune"><input type="checkbox" id="neptune" value="neptune" name="planet" disabled>Neptune</label></li>
+                        </ul>
+
+                <p>
+                    <label for="home"><strong>The planet you live on</strong></label>
+                    <select id="home" name="home">
+                        <option value="mercury">Mercury</option>
+                        <option value="venus">Venus</option>
+                        <option value="earth" selected title="Sweet home, huh?">Earth</option>
+                        <option value="mars">Mars</option>
+                        <option value="jupiter" disabled>Jupiter</option>
+                        <option value="saturn" disabled>Saturn</option>
+                        <option value="uranus" disabled>Uranus</option>
+                        <option value="neptune" disabled>Neptune</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="something-about-you"><strong>Tell us something about you</strong></label>   <br>
+                    <textarea required id="something-about-you" name="something-about-you" placeholder="Who are you?" rows="5" cols="60"></textarea>
+                </p>
+                <p id="date">
+                    <label for="datepicker"><strong>Preferable date of your trip</strong></label><br>
+                    <input type="text" placeholder="Date" id="datepicker" name="date " required autocomplete="off">
+                </p>
+                <p>
+                    <button type="submit" value="real" id="rs">Submit</button>
+                    <button type="button" value="Submit" id="submit">Submit</button>
+                    <button type="reset" value="Clear">Clear</button>
+                    
+                </p>
+                <script src="scripts/dialog.js"></script>
+                <div id="dialog" title="Are you sure to submit your request?">
+                    <p>Please, be sure to enter a correct data, so we can consider your participation in the event and contact you.</p>
+                </div>
+            </form>
+            <div>
+                <span class="top"><a href="#top">&#8249;</a></span>
+            </div>
+            <img class="m" src="planets/mars.png" alt="Mars" title="Mars">
+        </div>
+        <script src="scripts/highcontrast.js"></script>
+    </body>
+</html>

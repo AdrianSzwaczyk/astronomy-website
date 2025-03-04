@@ -1,0 +1,350 @@
+body {
+    overflow-y: scroll !important;
+}
+:root {
+    --grid-rows:5;
+}
+#gallery-wrapper {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(calc(var(--grid-rows) + 1), 20vh);
+    width: 60%;
+    top:30%;
+    left:calc(20% - 30px);
+    gap:10px;
+    top:0%;
+    padding:30px;
+}
+#bck {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 30, 30, 0.616);
+    filter: blur(10px);
+    z-index: -1;
+}
+#fill-grid {
+    grid-column: 1 / 4;
+    grid-row: 1;
+}
+#gallery-header {
+    width: 100%;
+    text-align: center;
+}
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 0;
+}
+.gallery-image img {
+    transition: 0.3s;
+    cursor:zoom-in;
+}
+.gallery-image {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0);
+    transition: 0.3s;
+}
+.gallery-image:hover {
+    box-shadow: 0 0 10px white;
+}
+.gallery-image:hover img {
+    transform: scale(1.1);
+}
+.gallery-image img {
+    width:100%;
+    height: 100%;
+    box-sizing: border-box;
+    object-fit: cover;
+    align-self: center;
+}
+#my-gallery-description {
+    position: fixed;
+    left: -20%;
+    height: 100%;
+    width: 15%;
+    background-color: rgba(41, 41, 41, 0.616);
+    transition: 0.5s;
+}
+#my-gallery-description h1 {
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+#my-gallery-description p {
+    font-size: 120%;
+    color: white;
+    margin: 20px;
+    margin-left: 15px;
+    text-align: justify;
+    text-indent: 20px;
+}
+#desc-trigger {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 70px;
+    color: white;
+    position:fixed;
+    top:50%;
+    left: 5%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: 0.5s;
+}
+#desc-trigger span {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+input[type=radio] {
+    top: -200%;
+    opacity: 0;
+}
+.zoom {
+    top: 0%;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    opacity:0;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.712);
+    transition: 0.3s;
+    z-index: 49;
+}
+.zoomedimg {
+    position: fixed;
+    height: fit-content;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    z-index: 50;
+    margin: 0;
+}
+.zoomedimg img {
+    max-height: 80vh;
+    height: 100%;
+    width: 100%;
+    object-fit:contain;
+}
+button[type=reset] {
+    opacity: 0;
+    top:-10%;
+}
+input[type=radio]:checked ~ .back {
+    opacity:1;
+    pointer-events: auto;
+}
+input[type=radio]:checked + div {
+    opacity:1;
+    pointer-events: auto;
+}
+.exit {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+.next {
+    right:calc(30% - 15vw);
+}
+.previous {
+    left:calc(30% - 15vw);
+}
+.next, .previous {
+    position: fixed;
+    top:50%;
+    font-size: 350%;
+    color: white;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: rgba(41, 41, 41, 0.616);
+    vertical-align: middle;
+    line-height: 68px;
+    text-align: center;
+    transform: translateY(-50%);
+    cursor: pointer;
+    margin: 0;
+    font-family: 'Varino', sans-serif;
+    user-select: none;
+    transition: 0.3s;
+    opacity: 0.5;
+}
+.next:hover, .previous:hover {
+    opacity: 1;
+}
+.next span, .previous span {
+    width: 100%;
+}
+.end {
+    filter: brightness(70%);
+    opacity: 50%;
+    cursor: default;
+}
+svg {
+    position: absolute;
+}
+#desc-trigger:hover + #my-gallery-description {
+    left:0%;
+}
+#desc-trigger:hover {
+    opacity: 0;
+}
+#my-gallery-description:hover {
+    left:0%;
+}
+#my-gallery-description:hover #desc-trigger {
+    opacity:0 !important;
+}
+#my-gallery-description:not(:hover) #desc-trigger  {
+    opacity:1;
+}
+.exit-x {
+    position: absolute;
+    box-sizing: border-box;
+    height: 3.1vw;
+    width: 3.1vw;
+    top:1vw;
+    right:1vw;
+}
+label svg {
+    border-radius: 50%;
+    background-color: rgba(43, 43, 43, 0.699);
+    opacity: 0;
+    transition: 0.3s;
+    cursor: pointer;
+}
+label svg polygon {
+    fill: rgba(255, 255, 255, 0.438);
+    transition: 0.3s;
+}
+.zoomedimg:hover label svg, .logForm:hover label svg {
+    opacity:0.6;
+}
+label svg:hover {
+    background-color: rgba(43, 43, 43, 1);
+    opacity: 1 !important;
+}
+label svg:hover polygon {
+    fill: rgba(255, 255, 255, 1);
+}
+#login {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    top:17vh;
+}
+.lButton {
+    margin-inline: 50px;
+    font-family: 'Varino', sans-serif;
+    font-size: 1vw;
+    width: auto;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    line-height: 100%;
+    vertical-align: middle;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.formExit {
+    position: fixed;
+    top:0;
+    margin: 0;
+    padding: 0%;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.76);
+    pointer-events: none;
+    opacity: 0;
+    transition: 1s;
+}
+.logForm h1 {
+    width: 100%;
+    text-align: center;
+}
+h1 {
+    font-size: 3vw !important;
+}
+input {
+    position: absolute;
+    left:50%;
+    width: 30%;
+    transform: translate(0, 50%);
+    cursor: text;
+}
+.logForm {
+    position: fixed;
+    box-sizing: border-box;
+    top:-40%;
+    left: 30%;
+    height: 40%;
+    width: 40%;
+    background-color: rgb(63, 63, 63);
+    z-index: 100;
+    opacity: 0;
+    transition: 1s;
+    border-radius: 10px;
+    font-family: 'Varino', sans-serif;
+    font-size: 1vw;
+    color: white;
+}
+form#log {
+    margin:0;
+}
+#loginForm, #registerForm {
+    margin-left: 10%;
+}
+label[for=res] {
+    width: auto;
+    height: auto;
+}
+#loginFormTrigger:checked + label + div, #registerFormTrigger:checked + label + div {    
+    top: 30%;
+    opacity: 1;
+}
+#loginFormTrigger:checked + label span.formExit, #registerFormTrigger:checked + label span.formExit {
+    pointer-events: initial;
+    opacity: 1;
+}
+.lButton:hover {
+    box-shadow: 0 0 10px white;
+    text-shadow: 0 0 10px white;
+}
+input[type=checkbox] {
+    display: none;
+}
+button[type=submit] {
+    position: absolute;
+    left: 50%;
+    height: 5%;
+    transform: translate(-50%, 100%);
+}
+@media only screen and (max-width: 999px) {
+    #gallery-header {
+        transform: translate(-50%, 50%);
+    }
+    #my-gallery-description {
+        width: 30%;
+        left: -40%;
+        z-index: 50;
+    }
+    #my-gallery-description h1 {
+        margin-top: 70px;
+    }
+    #login {
+        top:20vh;
+    }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Astronomy</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/nav.css">
+        <link rel="stylesheet" type="text/css" href="css/planets.css">
+        <script src="jqui/external/jquery/jquery.js"> </script>
+        <script src="scripts/scroll.js"></script>
+    </head>
+    <body>
+        <nav class="nav" id="nav">
+            <div class="hint">
+                <span>&#8249;</span>
+            </div>
+
+            <div class="nav-trigger"><p class="ghost">HOME</p></div>
+
+                <div class="el home active">
+                    <p class="menu">Home</p>
+                </div>
+            <div class="el planets sitenav">
+                <label for="dropmenu" class="pl">
+                    <span class="menu">Planets</span>
+                </label>
+            </div>
+            <input class="cb" type="checkbox" id="dropmenu">
+                <div  class="planetmenu">
+                    <ul>
+                        <li><a href="planets/mercury.html">Mercury</a></li>
+                        <li><a href="planets/venus.html">Venus</a></li>
+                        <li><a href="planets/earth.html">Earth</a></li>
+                        <li><a href="planets/mars.html">Mars</a></li>
+                        <li><a href="planets/jupiter.html">Jupiter</a></li>
+                        <li><a href="planets/saturn.html">Saturn</a></li>
+                        <li><a href="planets/uranus.html">Uranus</a></li>
+                        <li><a href="planets/neptune.html">Neptune</a></li>
+                    </ul>
+                </div>
+
+            <a class="sitenav" href="gallery.html">
+                <div class="el gallery">
+                    <p class="menu">Gallery</p>
+                </div>
+            </a>
+
+            <a class="sitenav" href="form.html">
+                <div class="el trip">
+                    <p class="menu">Trip to Mars</p>
+                </div>
+            </a>
+        </nav>  
+        <header>ASTRONOMY</header>
+        <div class="wrapper">
+            <p id="up"></p>
+            <img src="background1.jpg" id="background" alt="background">
+            <div id="planets">
+
+                <div class="mercury">
+                    <a href="planets/mercury.html"><img src="planets/mercury.png" alt="Mercury" title="Mercury"></a>
+                    <p class="desc">Mercury</p>
+                </div>
+
+                <div class="venus">
+                    <a href="planets/venus.html"><img src="planets/venus.png" alt="Venus" title="Venus"></a>
+                    <p class="desc">Venus</p>
+                </div> 
+
+                <div class="earth">
+                    <a href="planets/earth.html"><img src="planets/earth.png" alt="Earth" title="Earth"></a>
+                    <p class="desc">Earth</p>
+                </div>
+
+                <div class="mars">
+                    <a  href="planets/mars.html"><img src="planets/mars.png" alt="Mars" title="Mars"></a>
+                    <p class="desc">Mars</p>
+                </div>
+
+                <div class="jupiter">
+                    <a href="planets/jupiter.html"><img src="planets/jupiter.png" alt="Jupiter" title="Jupiter"></a>
+                    <p class="desc">Jupiter</p>
+                </div>
+
+                <div class="saturn">
+                    <map name="saturn">
+                        <area shape="circle" coords="241,259,120" href="saturn.html" alt="Planet surface">
+                        <area shape="poly" coords="133,194,67,47,71,24,107,37,210,138,347,321,410,455,410,493,367,476,272,380" href="planets/saturn.html" alt="Planet surface">
+                    </map>
+                    <img src="planets/saturn.png" alt="Saturn" title="Saturn" usemap="#saturn">
+                    <p class="desc">Saturn</p>
+                </div>
+
+                <div class="uranus">
+                    <a href="planets/uranus.html"><img src="planets/uranus.png" alt="Uranus" title="Uranus"></a>
+                    <p class="desc">Uranus</p>
+                </div>
+
+                <div class="neptune">
+                    <a href="planets/neptune.html"><img src="planets/neptune.png" alt="Neptune" title="Neptune"></a>
+                    <p class="desc">Neptune</p>
+                </div>
+                
+            </div>
+            <div id="bottom">
+            </div>
+            <script src="scripts/disappear.js"></script>
+        </div>
+        <footer class="upper">
+            <span class="top a"><a href="#up">&#8249;</a></span>
+        </footer>
+        <footer>
+            <span class="top b"><a href="#bottom">&#8250;</a></span>
+        </footer>
+    </body>
+</html>

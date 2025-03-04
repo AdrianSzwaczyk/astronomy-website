@@ -1,0 +1,343 @@
+body {
+    background-image: url("../background1.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+#date {
+    z-index: 30;
+}
+label[for=tel] strong:after,label[for=home] strong::after,strong.notreq::after {
+    content: none;
+}
+
+strong::after {
+    content: "*";
+}
+.rel {
+    position: relative;
+}
+#rs {
+    position: absolute;
+}
+.tooltip {
+    background-color: rgba(0, 0, 0, 0.733) !important;
+    color: white !important;
+    font-family: 'Varino', sans-serif !important;
+    font-size: 90% !important;
+}
+.no-tt {
+    display: none !important;
+}
+.window {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+#dialog {
+    display: none;
+}
+#description {
+    position: absolute;
+    background-color: rgba(41, 41, 41, 0.616);
+    left:5%;
+    width: 90%;
+    top:0;
+    transition: 2s;
+}
+.visitedlist {
+    list-style: none;
+}
+.visitedlist li {
+    margin-bottom: 5px;
+}
+
+label[for=earth] {
+    cursor: initial;
+}
+h1 {
+    font-family: 'Varino', sans-serif;
+    font-size: 7vw;
+    color: white;
+    position: static;
+    width: 100%;
+    text-align: center;
+    z-index: 25;
+    animation: shadow 5s infinite;
+    transform: none;
+}
+input:disabled + label {
+    color:rgba(255, 255, 255, 0.616);
+    cursor: default;
+}
+input[id=earth]:disabled {
+    box-shadow: 0 0 5px white;
+}
+
+input:disabled {
+    cursor: default;
+}
+h2 {
+    font-family: 'Varino', sans-serif;
+    font-size: 3vw;
+    color: white;
+    left:0%;
+    z-index: 20;
+    text-align: center;
+    width: 100%;
+    animation: shadow 5s infinite;
+    transform: none;
+    margin-top: 5%;
+}
+form {
+    font-family: 'Varino', sans-serif;
+    color: white;
+    margin-left: 5%;
+}
+.m {
+    position: absolute;
+    right:10%;
+    top:45%;
+    height: 30vw;
+}
+label {
+    cursor: pointer;
+}
+strong {
+    line-height: 2em;
+}
+input {
+    cursor: pointer;
+}
+input[type=text],[type="email"],[type="tel"] {
+    cursor:text;
+    width:30%;
+}
+#firstname {
+    position: relative;
+    transform: translate(28px);
+}
+#lastname {
+    position: relative;
+    transform: translate(40px);
+}
+#email {
+    position: relative;
+    transform: translate(90px);
+}
+#firstname-error {
+    position: absolute;
+    transform: translate(48px,50%);
+}
+#lastname-error {
+    position: absolute;
+    transform: translate(60px,50%);
+}
+#email-error {
+    position: absolute;
+    transform: translate(110px,50%);
+}
+#something-about-you-error {
+    position: relative;
+    bottom: 90px;
+    left:-70px;
+}
+#gender-error {
+    position: absolute;
+    top:30%;
+    left:130%;
+    width: 200%;
+}
+label.error {
+    color: red;
+}
+
+#datepicker-error {
+    position: relative;
+    left:10px;
+}
+div[role=dialog] {
+    border-radius: 10px;
+    background-color: rgb(31, 31, 31);
+    font-family: 'Varino', sans-serif;
+}
+.ui-widget-header {
+    border-radius: 10px !important;
+    border: 0 !important;
+    background-color: rgb(39, 39, 39) !important;
+    color:white !important;
+}
+.ui-dialog-content p {
+    color:white;
+}
+.ui-widget-content {
+    background-color: rgb(31, 31, 31);
+}
+.ui-dialog-buttonset {
+    font-family: 'Varino', sans-serif;
+    color: white;
+    width: 100%;
+}
+#confirm, #cancel {
+    color: white !important;
+    background-color: rgb(39, 39, 39) !important;
+    font-family: 'Varino', sans-serif !important;
+    width: 45% !important;
+    margin: 2.5% !important;
+    transition: 0.3s text-shadow, 0.3s box-shadow;
+}
+#confirm:hover, #cancel:hover {
+    text-shadow:0 0 10px white;
+}
+.ui-dialog-titlebar-close {
+    background-color: rgb(32, 32, 32) !important;
+    border:0 !important;
+}
+.ui-dialog-title {
+    width: 100% !important;
+    text-align: center;
+}
+.ui-dialog-buttonpane {
+    background-color: rgb(31, 31, 31) !important;
+}
+
+select {
+    border-radius: 10px;
+    color: white;
+    font-family: 'Varino', sans-serif;
+    background-color: rgb(24, 24, 24);
+    transition: box-shadow 0.2s;
+    cursor: pointer;
+}
+textarea {
+    resize: none;
+    background-color: rgb(24, 24, 24);
+    color: white;
+    border-radius: 10px;
+    transition: box-shadow 0.2s;
+}
+#datepicker {
+    width: 110px;
+}
+#ui-datepicker-div {
+    background-color: rgb(22, 22, 22) !important;
+    border-radius: 10px !important;
+}
+.ui-datepicker-calendar {
+    background-color: rgb(22, 22, 22) !important;
+    color: white !important;
+}
+tbody tr td span {
+    background-color: rgb(53, 53, 53) !important;
+    color: white !important;
+}
+tbody tr td a {
+    background-color: rgb(24, 24, 24) !important;
+    color: white !important;
+    transition: box-shadow 0.3s, text-shadow 0.3s !important;
+}
+.ui-datepicker-today span {
+    background-color: rgb(187, 230, 0) !important;
+}
+a.ui-state-active {
+    background-color: rgb(92, 92, 92) !important;
+    border-color: white !important;
+    box-shadow: 0 0 5px white !important;
+}
+a.ui-state-hover {
+    box-shadow: 0 0 5px white !important;
+    text-shadow: 0 0 5px white !important;
+    background-color: rgb(71, 71, 71) !important;
+}
+a.ui-datepicker-next, a.ui-datepicker-prev {
+    transition: box-shadow 0.3s !important;
+    background-color: rgb(26, 26, 26) !important;
+    cursor: pointer;
+}
+.ui-widget-overlay {
+    opacity: 50% !important;
+    background: rgba(0, 0, 0, 0.534) !important;
+}
+button {
+    border-radius: 10px;
+    color: white;
+    font-family: 'Varino', sans-serif;
+    background-color: rgb(24, 24, 24);
+    border-color: rgb(199, 199, 199);
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+input[type=radio] {
+    box-shadow: none !important;
+}
+input {
+    color: white;
+    font-family: 'Varino', sans-serif;
+    background-color: rgb(24, 24, 24);
+    transition: box-shadow 0.2s;
+    border-radius: 10px;
+}
+input[type=text]:focus, input:checked, textarea:focus {
+    box-shadow: 0 0 5px white;
+}
+input:hover, textarea:hover, select:hover, button:hover {
+    box-shadow: 0 0 5px white;
+}
+input:disabled {
+    box-shadow: 0 0 0 white;
+}
+.nav:hover ~ div#description {
+    opacity: 0.3;
+    transition: 2s;
+}
+span.top {
+    width: 100%;
+    text-align: center;
+    font-family: 'Varino', sans-serif;
+    font-size: 200%;
+    color: white;
+}
+span.top a {
+    position: relative;
+    writing-mode:vertical-lr;
+    left:50%;
+    transform: translateX(-50%);
+    animation: hoppingv 2s infinite ease-in-out;
+}
+span.top a:hover {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+@keyframes hoppingv {
+    0% {transform: translateY(0%);}
+    50% {transform: translateY(-50%);}
+    100% {transform: translateY(0%);}
+}
+@media only screen and (max-width: 999px) {
+    #filler {
+        height: 5vh;
+    }
+    div content {
+        position: absolute;
+        top: 0;
+        display: inline-block;
+        padding: 5%;
+        background-color: rgba(41, 41, 41, 0.616);
+    }
+    h1 {
+        top:calc(15vh - 5vw);
+    }
+    #fadeout {
+        position: absolute;
+        height: 20vh;
+        right: 5%;
+        width: 90%;
+        top:0;
+        background-image: linear-gradient(black 0%, rgba(0, 0, 0, 0.904) 20%, rgba(0, 0, 0, 0.795) 50%,rgba(0, 0, 0, 0) 100%);
+        z-index: 6;
+    }
+}
+@media only screen and (max-width: 1100px) {
+    .m {
+        display: none;
+    }
+}

@@ -1,0 +1,75 @@
+<!ELEMENT space-objects (stars,planets,artificial-objects)>
+<!ATTLIST space-objects xmlns:xsi CDATA "http://www.w3.org/2001/XMLSchema-instance">
+<!ATTLIST space-objects xsi:noNamespaceSchemaLocation CDATA "planets.xsd">
+
+<!ELEMENT stars (solar-system,universe)>
+<!ELEMENT planets (solar-system)>
+<!ELEMENT artificial-objects (solar-system,universe)>
+
+<!ELEMENT solar-system (star*|(inner-planets,outer-planets)|spacecraft*)>
+<!ELEMENT universe (star*|spacecraft*)>
+
+<!ELEMENT inner-planets (planet+)>
+<!ELEMENT outer-planets (planet+)>
+
+<!ENTITY % info "data,image,wikipedia-link">
+<!ENTITY % t "type">
+
+<!ELEMENT star (%info;)>
+<!ATTLIST star nr CDATA #REQUIRED>
+<!ATTLIST star %t; (red-dwarf|G-type-main-sequence|black-hole|white-dwarf|red-giant|neutron) #REQUIRED>
+
+<!ELEMENT planet (%info;)>
+<!ATTLIST planet nr CDATA #REQUIRED>
+<!ATTLIST planet %t; (terrestial|gas-giant) #REQUIRED>
+<!ATTLIST planet visited-by-man-made-object (yes|no) #REQUIRED>
+
+<!ELEMENT spacecraft (%info;)>
+<!ATTLIST spacecraft nr CDATA #REQUIRED>
+<!ATTLIST spacecraft %t; (space-station|space-probe|geostationary-spacecraft) #REQUIRED>
+<!ATTLIST spacecraft working (yes|no) #REQUIRED>
+
+<!ELEMENT data (name,physical-properties,description,year?,location?,countries?)>
+
+	<!ELEMENT name (#PCDATA)>
+
+	<!ELEMENT physical-properties (length?,width?,radius?,mass?,escape-velocity?,density?,gravity?,rotation-period?,orbital-period?)>
+
+		<!ELEMENT length (#PCDATA)>
+		<!ATTLIST length units CDATA #FIXED "m">
+
+		<!ELEMENT width (#PCDATA)>
+		<!ATTLIST width units CDATA #FIXED "m">
+
+		<!ELEMENT radius (#PCDATA)>
+		<!ATTLIST radius units CDATA #FIXED "km">
+
+		<!ELEMENT mass (#PCDATA)>
+		<!ATTLIST mass units CDATA #FIXED "kg">
+
+		<!ELEMENT escape-velocity (#PCDATA)>
+		<!ATTLIST escape-velocity units CDATA #FIXED "km/s">
+
+		<!ELEMENT density (#PCDATA)>
+		<!ATTLIST density units CDATA #FIXED "kg/m3">
+
+		<!ELEMENT gravity (#PCDATA)>
+		<!ATTLIST gravity units CDATA #FIXED "g">
+
+		<!ELEMENT rotation-period (#PCDATA)>
+
+		<!ELEMENT orbital-period (#PCDATA)>
+
+	<!ELEMENT description (#PCDATA)>
+	<!ELEMENT year (#PCDATA)>
+	<!ELEMENT location (#PCDATA)>
+	<!ELEMENT countries (#PCDATA)>
+
+<!ELEMENT image EMPTY>
+<!ATTLIST image source CDATA #REQUIRED>
+
+<!ELEMENT wikipedia-link EMPTY>
+<!ATTLIST wikipedia-link source CDATA #REQUIRED>
+
+
+

@@ -1,0 +1,170 @@
+@font-face {
+    font-family: Varino;
+    src: local('Varino'), url("https://fonts.cdnfonts.com/s/47249/VarinonormalRegular-nRYg4.woff") format('woff');
+}
+html, body {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+.black {
+    color:black !important;
+    opacity: 1;
+}
+#dialog .black {
+    color: white !important;
+}
+.white {
+    background-color: white !important;
+    opacity: 1;
+}
+#background {
+    position: absolute;
+    object-fit: cover;
+    height: 130%;
+    width: 100vw;
+    z-index: -1;
+    transform: translateZ(-100px) scale(16);
+}
+#social {
+    position: fixed;
+    top:0;
+    left: 0 !important;
+    height: 100px !important;
+}
+header {
+    font-family: 'Varino', sans-serif;
+    font-size: 5vw;
+    color: white;
+    position: fixed;
+    top: calc(48vh + 1vw);
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 20px white;
+    opacity: 0;
+    z-index: 10;
+    animation: shadow 5s cubic-bezier(.49,.08,.54,.96) infinite, fadein 3s linear 1;
+    animation-fill-mode: both;
+    user-select: none;
+    pointer-events: none;
+}
+.pl {
+    box-sizing: border-box;
+    z-index: 10;
+    cursor: pointer;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    z-index: -10;
+}  
+::-webkit-scrollbar-track {
+    background:rgba(0, 0, 0, 0);
+    opacity: 0%;
+    box-shadow: 0 0 20px white;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0); 
+    opacity: 0.1;
+    border-radius: 5px;
+  }
+::-webkit-scrollbar-thumb:hover {
+   background: rgba(46, 46, 46, 0.281);  
+   opacity: 0.5;
+}
+footer {
+    box-sizing: border-box;
+    position: fixed;
+    background-color: transparent;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    font-family: 'Varino', sans-serif;
+    font-size: 100%;
+    color: white;
+    z-index: 10;
+    bottom: 1%;
+    pointer-events: none;
+    opacity: 0;
+    animation: fadein 2s 1 both;
+}
+.upper {
+    top:2%;
+    height: 5%;
+}
+span.top {
+    width: 100%;
+    text-align: center;
+    font-family: 'Varino', sans-serif;
+    font-size: 400%;
+    color: white;
+}
+span.top a {
+    opacity:30%;
+    position: relative;
+    writing-mode:vertical-lr;
+    transition: transform 1s, opacity 1s, text-shadow 1s;
+    
+}
+span.top a:hover {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.788);
+    animation-play-state: paused;
+    opacity: 1 ;
+}
+.a {
+    position: relative;
+    bottom: 100%;
+    pointer-events: auto;
+}
+.b {
+    pointer-events: auto;
+}
+.top a {
+    transform: translateX(8px);
+}
+.a a:hover {
+    transform: translateY(-10%) translateX(8px);
+}
+.b a:hover {
+    transform: translateY(10%) translateX(8px);
+}
+#bottom {
+    position: absolute;
+    bottom: -250%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#up {
+    width: 0;
+    height: 0;
+    top:-10%;
+    position: absolute;
+}
+@keyframes hoppingv {
+    0% {transform: translateY(0%);}
+    50% {transform: translateY(-50%);}
+    100% {transform: translateY(0%);}
+}
+@keyframes footerfadein {
+    100% {opacity: 30%;}
+}
+@keyframes fadein {
+    100%   { opacity: 1; }
+}
+@keyframes fadeout {
+    100%   { opacity: 0; }
+}
+@keyframes shadow {
+    0% {text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);}
+    50% {text-shadow: 0 0 15px white;}
+    100% {text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);}
+}
+@keyframes pulse {
+    0% {opacity: 30%}
+    50% {opacity: 70%}
+    100% {opacity: 30%}
+}
+@media only screen and (max-width: 999px) {
+    .upper {
+        top: 10%;
+    }
+}

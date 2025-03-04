@@ -1,6 +1,6 @@
 # Website Project
 
-![Main Page](.\Website\preview\main-page.png)
+![Main Page](./Website/preview/main-page.png)
 
 ## Overview
 
